@@ -3,6 +3,7 @@
     text-decoration: none;
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
 }
 body{
     margin: 0px;
@@ -10,39 +11,48 @@ body{
     font-family: 'Arial';
 }
 .wrapper{
-    width: 1001px;
+    width: 100%;
+    max-width: 1001px;
     margin: auto;
     position: relative;
-}
-.logo a{
-    font-size: 30px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: 800;
-    color: #f8f6f5;
-    float: left;
-}
-.menu{
-    float: right;
+    padding: 0 16px;
 }
 nav{
     width: 100%;
     margin: auto;
-    display: flex;
-    line-height: 80px;
     position: sticky;
     position: -webkit-sticky;
     top: 0px;
     background-color: rgb(5, 5, 0);
     z-index: 1;
 }
+nav .wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    min-height: 80px;
+}
+.logo a{
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 800;
+    color: #f8f6f5;
+}
+.menu{
+    max-width: 100%;
+}
 nav ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 nav ul li{
-    float: left;
+    display: flex;
+    align-items: center;
 }
 nav ul li a{
     color: rgb(244, 242, 242);
@@ -54,27 +64,25 @@ nav ul li a{
 nav ul li a:hover{
     text-decoration: underline;
 }
-
 a.order{
     background: #f0960e;
     border-radius: 20px;
-    margin-top: 20px;
     padding: 10px 15px 10px 15px;
     color: aliceblue;
     cursor: pointer;
     font-weight: bold;
 }
-
 /*akhir navbar*/
 
 /*AWAL BANNER*/
 section{
     margin: 0px;
     display: flex;
-    margin-bottom: 0px;
-    margin-top: 0px;
+    align-items: center;
+    gap: 40px;
 }
 .kolom{
+    flex: 1;
     text-align: left;
     margin-top: 50px;
     margin-bottom: 0px;
@@ -85,15 +93,14 @@ section{
     font-family: 'Times New Roman', Times, serif;
     color: #0b0700;
     line-height: 25px;
-    justify-content: first baseline;
 }
 p{
-    font-family: 'comic ms sans';
+    font-family: 'comic sans ms', 'Times New Roman', serif;
     color: #0f0900;
     line-height: 20px;
 }
 h2{
-    font-family: 'comic sans ms';
+    font-family: 'comic sans ms', Arial, sans-serif;
     font-weight: 700;
     font-size: 45px;
     margin-bottom: 30px;
@@ -105,17 +112,13 @@ h2{
 .gambar{
     margin-top: 50px;
     width: 480px;
+    max-width: 100%;
     height: auto;
-    float: right;
     border-radius: 24px;
     object-fit: cover;
     box-shadow: 0 10px 20px rgba(246, 182, 44, 0.7);
     transition: transform 0.3s ease;
-    flex: 1;
-    display: flex;
-    justify-content: center;
     transform: translateY(-4px);
-    gap: 40px;
 }
 a.reservasi{
     background: #f0960e;
@@ -190,6 +193,7 @@ footer{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 20px;
 }
 .footer-kolom{
     flex: 1;
@@ -238,3 +242,59 @@ footer{
     color: #fff;
 }
 /*AKHIR FOOTER*/
+
+/*RESPONSIF TABLET*/
+@media (max-width: 800px){
+    .grid-menu{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/*RESPONSIF HP*/
+@media (max-width: 600px){
+    nav .wrapper{
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    nav ul{
+        line-height: 44px;
+    }
+    nav ul li a{
+        padding: 0 10px;
+        margin-right: 0 !important;
+    }
+    nav ul li img{
+        margin-right: 8px !important;
+    }
+    a.order{
+        padding: 8px 14px;
+    }
+    section{
+        flex-direction: column;
+        gap: 10px;
+    }
+    h2{
+        font-size: 32px;
+        line-height: 42px;
+    }
+    .kolom{
+        margin-top: 30px;
+    }
+    .gambar{
+        width: 100%;
+        margin-top: 20px;
+    }
+    .grid-menu{
+        grid-template-columns: 1fr;
+    }
+    .footer-grid{
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-kolom.kiri{
+        text-align: center;
+        padding-left: 0;
+    }
+    }
